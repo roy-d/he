@@ -18,13 +18,12 @@ trait HEServiceSuite {
   "HTML Explorer" should "return health" in { f =>
     val request = Request("/hc")
     val result: Response = f(request)
-    println(result)
     result.statusCode shouldBe 200
   }
 
   it should "respond to queries" in { f =>
     val request: Request = RequestBuilder()
-      .url("http://localhost:8080/he").buildPost(
+      .url("http://localhost:8080/he").buildPut(
       Buf.Utf8(
         s"""
            |  {
@@ -33,7 +32,6 @@ trait HEServiceSuite {
            """.stripMargin)
     )
     val result: Response = f(request)
-    println(result)
     result.statusCode shouldBe 200
   }
 
