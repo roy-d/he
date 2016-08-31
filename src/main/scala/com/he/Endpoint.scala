@@ -45,7 +45,6 @@ object Endpoint {
   def query(): Endpoint[HEResponse] =
     put("he" :: body.as[Query]) {
       query: Query =>
-        println(query)
         Ok(HEResponse("ok", Some("response"))) }
 
 }
