@@ -5,10 +5,10 @@ import org.scalacheck.{Arbitrary, Gen}
 
 package object he {
 
-  implicit val queryArbitrary: Arbitrary[Query] = Arbitrary(
+  implicit val queryArbitrary: Arbitrary[HEQuery] = Arbitrary(
     for {
       param1 <- Gen.alphaStr
       param2 <- Gen.alphaStr
-    } yield Query(param1, Some(param2))
+    } yield HEQuery(param1, Some(param2))
   )
 }

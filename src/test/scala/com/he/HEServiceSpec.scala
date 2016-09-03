@@ -21,13 +21,19 @@ trait HEServiceSuite {
     result.statusCode shouldBe 200
   }
 
+  it should "return lsInfo" in { f =>
+    val request = Request("/ls")
+    val result: Response = f(request)
+    result.statusCode shouldBe 200
+  }
+
   it should "respond to queries" in { f =>
     val request: Request = RequestBuilder()
       .url("http://localhost:8080/he").buildPut(
       Buf.Utf8(
         s"""
            |  {
-           |    "param1": "One"
+           |    "namePattern": "XXX1055.*Invoice_001.*"
            |  }
            """.stripMargin)
     )
