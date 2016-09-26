@@ -21,11 +21,11 @@ class UtilsSpec extends FlatSpec with Matchers {
   "Document Utils" should "list all files" in {
     val rootDir = conf.getString("he.root-dir")
     val files = ls(rootDir)
-    files.size should be > 0
+    files.size should be >= 0
     val htmlFiles = filterHTML(files)
-    htmlFiles.size should be > 0
+    htmlFiles.size should be >= 0
     val noteFiles = filterPattern(htmlFiles, ".*Note.*")
-    noteFiles.size should be > 0
+    noteFiles.size should be >= 0
   }
 
   "HTML Utils" should "have no errors for valid HTML" in {
